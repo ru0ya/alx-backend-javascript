@@ -1,5 +1,4 @@
 import { uploadPhoto, createUser } from './utils.js'
-import asyncio
 
 
 export default async function asyncUploadUser() {
