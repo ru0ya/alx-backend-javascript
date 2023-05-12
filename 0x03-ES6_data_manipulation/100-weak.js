@@ -17,6 +17,5 @@ export default function queryAPI(endpoint) {
     throw new Error('Endpoint load is high');
   }
 
-
   console.log(`Querying ${endpoint.protocol}:${endpoint.name}`);
 }
