@@ -1,3 +1,4 @@
+/* eslint-disable */
 export default class Car {
   constructor(brand, motor, color) {
     this._brand = brand;
@@ -5,19 +6,12 @@ export default class Car {
     this._color = color;
   }
 
-  get brand() {
-    return this._brand;
-  }
-
-  get motor() {
-    return this._motor;
-  }
-
-  get color() {
-    return this._color;
-  }
-
   cloneCar() {
-    return new Car(this._brand, this._motor, this._color);
+    const Constructor = this.constructor[Symbol.species];
+    return new Constructor(this._brand, this._motor, this._color);
+  }
+
+  static get [Symbol.species]() {
+    return this;
   }
 }
