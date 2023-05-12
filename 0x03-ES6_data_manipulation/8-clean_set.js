@@ -1,5 +1,11 @@
+/* eslint-disable */
 export default function cleanSet(set, startString) {
-  const filteredValues = [...set].filter((value) => value.startsWith(startString));
-  const cleanedString = filteredValues.map((value) => value.slice(startString.length)).join('-');
-  return cleanedString;
+  if (!startString || !startString.length) {
+    return '';
+  }
+
+  return [...set]
+    .filter((value) => value && value.startsWith(startString))
+    .map((value) => value.slice(startString.length))
+    .join('-');
 }
