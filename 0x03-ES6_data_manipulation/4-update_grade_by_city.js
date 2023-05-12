@@ -1,3 +1,4 @@
+/* eslint-disable */
 export default function updateStudentGradeByCity(studentList, city, newGrades) {
   return studentList
     .filter(student => student.location === city)
