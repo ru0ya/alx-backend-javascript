@@ -1,5 +1,3 @@
-#!/usr/bin/node
-
 function calculateNumber(type, a, b) {
 	a = Math.round(a);
 	b = Math.round(b);
