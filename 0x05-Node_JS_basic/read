@@ -1,0 +1,38 @@
+const fs = require('fs');
+
+function countStudents(filePath){
+	let content;
+
+	try {
+		content = fs.readFileSync(filePath, 'utf-8');
+	} catch (err) {
+		throw new Error('Cannot load the database');
+	}
+		const students = content.split('\n').filter(line => line.trim() !== '');
+		const studentCount = students.length - 1;
+		console.log(`Number of students: ${studentCount}`);
+
+		const fields = new Map();
+		const firstNamesByField = new Map();
+
+		students.forEach(student => {
+			const [firstName, , , field] = student.split(',').map(item => item.trim());
+
+			if (fields.has(field)) {
+				fields.set(field, fields.get(field) + 1);
+				firstNamesByField.get(field).push(firstName);
+			} else {
+				fields.set(field, 1);
+				firstNamesByField.set(field, [firstName]);
+			}
+		});
+
+		fields.forEach((count, field) => {
+			const firstNames = firstNamesByField.get(field).join(', ');
+			console.log(`Number of students in ${field}: ${count}. List: ${firstNames}`);
+		});
+
+		return studentCount;
+}
+
+module.exports = countStudents;
