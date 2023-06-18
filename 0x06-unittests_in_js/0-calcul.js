@@ -1,6 +1,8 @@
 function calculateNumber(a, b) {
-	let a = Math.round(a);
-	let b = Math.round(b);
+	let roundedA = Math.round(a);
+	let roundedB = Math.round(b);
 
-	return sum(a, b);
+	return sum(roundedA, roundedB);
 }
+
+module.exports calculateNumber;

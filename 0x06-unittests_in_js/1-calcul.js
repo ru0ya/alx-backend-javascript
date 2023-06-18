@@ -1,18 +1,15 @@
 function calculateNumber(type, a, b) {
-	a = Math.round(a);
-	b = Math.round(b);
-
 	if (type === 'SUM') {
-		return sum(a, b);
+		return sum(Math.round(a), Math.round(b));
 	}
 	else if (type === 'SUBTRACT') {
-		return a - b;
+		return Math.round(a) - Math.round(b);
 	}
 	else if (type === 'DIVIDE') {
-		if (b === 0) {
-			return Error;
+		if (Math.round(b) === 0) {
+			throw new Error('Error');
 		}
-		return a / b;
+		return Math.round(a) / Math.round(b);
 	}
 }
 
