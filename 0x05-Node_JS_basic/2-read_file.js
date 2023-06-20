@@ -27,11 +27,11 @@ function countStudents(path) {
   });
 
   for (const field in fields) {
-	  if (fields.hasOwnProperty(field)) {
-		  const count = fields[field].length;
-		  const firstNames = fields[field].join(', ');
-		  console.log(`Number of students in ${field}: ${count}. List: ${firstNames}`);
-	  }
+    if (Object.prototype.hasOwnProperty.call(fields, field)) {
+      const count = fields[field].length;
+      const firstNames = fields[field].join(', ');
+      console.log(`Number of students in ${field}: ${count}. List: ${firstNames}`);
+    }
   }
 }
 

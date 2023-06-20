@@ -11,10 +11,10 @@ app.get('/', (req, res) => {
   res.send('HelloHolberton School!');
 });
 
-app.get('/students', (req, res) => {
+app.get('/students', async (req, res) => {
   res.send('This is the list of our students');
   try {
-    const students = countStudents(DATABASE);
+    const students = await countStudents(DATABASE);
     res.end(`${students.join('\n')}`);
   } catch (error) {
     res.end(error.message);

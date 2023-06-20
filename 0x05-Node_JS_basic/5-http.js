@@ -14,10 +14,10 @@ const app = http.createServer(async (req, res) => {
     res.writeHead(200, { 'Content-Type': 'text/plain' });
     res.end('Hello Holberton School!');
   } else if (pathname === '/students') {
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end('This is the list of our students');
     try {
       const students = await countStudents(DATABASE);
+      res.writeHead(200, { 'Content-Type': 'text/plain' });
+      res.write('This is the list of our students\n');
       res.end(`${students.join('\n')}`);
     } catch (error) {
       res.end(error.message);
@@ -29,7 +29,7 @@ const app = http.createServer(async (req, res) => {
 });
 
 const port = 1245;
-const host = 'localhost';
+const host = '127.0.0.1';
 
 app.listen(port, host);
 
