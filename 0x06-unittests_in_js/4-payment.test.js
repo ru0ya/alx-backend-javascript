@@ -1,21 +1,23 @@
 const sinon = require('sinon');
-const Utils = require('utils');
-const {  sendPaymentRequestToApi } = require('3-payment');
+const Utils = require('./utils');
+const sendPaymentRequestToApi = require('./3-payment');
+const {describe, it} = require('mocha');
+const assert = require('assert');
 
 describe('sendPaymentRequestToApi', () => {
 	it('should use Utils.calculateNumber to perform math', () => {
-		const calcNumberSpy = sinon.stub(Utils, 'calculateNumber');
-		const consoleLogSpy = sinon.spy(console, 'log');
-		calculateNumberStub.withArgs('SUM', 100, 20).returns(120);
+		const stub = sinon.stub(Utils, 'calculateNumber');
+		const spy = sinon.spy(console, 'log');
+		stub.withArgs('SUM', 100, 20).returns(120);
 
 		sendPaymentRequestToApi(100, 20);
 
-		sinon.assert.calledOnce(calculateNumberStub);
-		sinon.assert.calledWithExactly(calcNumberSpy, 'SUM', 100, 20);
-		sinon.assert.calledWith(consoleLogSpy, 'The total is: 10');
+		sinon.assert.calledOnce(stub);
+		sinon.assert.calledWithExactly(stub, 'SUM', 100, 20);
+		sinon.assert.calledWith(spy, 'The total is: 120');
 
 
-		calculateNumberStub.restore();
-		consoleLogSpy.restore();
+		stub.restore();
+		spy.restore();
 	});
 });

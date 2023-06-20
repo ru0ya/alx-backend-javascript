@@ -1,5 +1,6 @@
 const assert = require('assert');
-const calculateNumber = requuire('1-calcul');
+const {it, describe } = require("mocha");
+const calculateNumber = require('./1-calcul');
 
 describe('calculateNumber', function() {
 	it('should return sum of two rounded numbers', () => {
@@ -13,4 +14,4 @@ describe('calculateNumber', function() {
 	it('should return division of two numbers', () => {
 		assert.strictEqual(calculateNumber('DIVIDE', 1.4, 0), 'Error');
 	});
-}
+});

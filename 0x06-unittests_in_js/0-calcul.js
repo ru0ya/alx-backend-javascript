@@ -2,7 +2,7 @@ function calculateNumber(a, b) {
 	let roundedA = Math.round(a);
 	let roundedB = Math.round(b);
 
-	return sum(roundedA, roundedB);
+	return (roundedA + roundedB);
 }
 
-module.exports calculateNumber;
+module.exports = calculateNumber;
