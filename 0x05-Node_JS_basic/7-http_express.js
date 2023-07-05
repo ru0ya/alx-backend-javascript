@@ -6,9 +6,11 @@ const args = process.argv.slice(2);
 const countStudents = require('./3-read_file_async');
 
 const DATABASE = args[0];
+const port = 1245;
+const host = 'localhost';
 
 app.get('/', (req, res) => {
-  res.send('HelloHolberton School!');
+  res.send('Hello Holberton School!');
 });
 
 app.get('/students', async (req, res) => {
@@ -20,9 +22,6 @@ app.get('/students', async (req, res) => {
     res.end(error.message);
   }
 });
-
-const port = 1245;
-const host = 'localhost';
 
 app.listen(port, host);
 
