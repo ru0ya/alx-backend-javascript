@@ -5,4 +5,4 @@ function calculateNumber(a, b) {
 	return sum(roundedA, roundedB);
 }
 
-module.exports calculateNumber;
+module.exports = calculateNumber;
